@@ -1,0 +1,374 @@
+body {
+    overflow: hidden;
+/* Fundo colorido */
+  background-image:url(1000280732.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin: 0;
+  color: white;
+  text-align: center;
+  padding-top: 90px; 
+  font-family: sans-serif;
+}
+
+/* Barra de pesquisa */
+.navbar {body {
+    overflow: hidden;
+    /* Fundo colorido */
+    background-image:url(1000280732.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    color: white;
+    text-align: center;
+    padding-top: 90px; 
+    font-family: sans-serif;
+}
+
+/* Barra de pesquisa */
+.navbar {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 1px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgb(117, 83, 211);
+    z-index: 2;
+    width: 100%;
+}
+
+.search-container {
+    margin-left: 160px;
+    display: flex;
+    align-items: center;
+    flex-grow: 10; 
+}
+
+.search-container input {
+    padding: 8px;
+    margin-right: 250px;
+    border-radius: 100px;
+    border: none;
+    width: 1000px;
+}
+
+/* NOVO: Container para o botão e dropdown */
+.login-container {
+    position: relative; /* Essencial para posicionar o dropdown */
+    margin-right: 25px; /* Mantém o espaçamento à direita */
+}
+
+/* Botão de login */
+.login {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    /* Remover posicionamento absoluto/relativo daqui */
+}
+
+/* NOVO: Estilo do Dropdown de Login */
+.login-dropdown {
+    display: none; /* Escondido por padrão */
+    position: absolute;
+    top: 55px; /* Posiciona logo abaixo do botão de login (ajuste se necessário) */
+    right: 0;
+    width: 230px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    z-index: 100;
+    text-align: left;
+    color: #333; /* Cor do texto no dropdown */
+}
+
+.login-dropdown::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid white; /* Ponta do triângulo */
+}
+
+.login-dropdown h4 {
+    margin-top: 0;
+    color: rgb(117, 83, 211);
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.login-dropdown input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.login-dropdown .entrar-btn {
+    width: 100%;
+    margin-bottom: 10px;
+    background: rgb(117, 83, 211);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.login-dropdown a {
+    display: block;
+    color: #666;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+/* Logo Vitrine Livre */
+.logo {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 130px;
+    height: 130px;
+    background-image: url(imagens/1000280733.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+/* Texto Vitrine livre */
+.titulo {
+    position: absolute;
+    top: 0px;
+    left: 50px;
+    width: 850px;
+    height: 720px;
+    background-image: url(1000280734.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+/* Flor decorativa*/
+.flor {
+    position: absolute;
+    top: 350px;
+    right: 50px;
+    width: 500px;
+    height: 600px;
+    background-image: url(1000280735.png);
+    background-size: cover;
+    background-position: center;
+}
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-wrapper input {
+    padding: 8px 8px 8px 40px; /* espaço à esquerda para a lupa */
+    border-radius: 100px;
+    border: none;
+    width: 300px;
+}
+
+.imagem-lupa {
+    position: absolute;
+    left: 125px;
+    width: 23px;
+    height: 20px;
+    pointer-events: none; /* evita que clique bloqueie o input */
+}
+.projeto-container {
+    display: flex;
+    align-items: center;
+    background-color:rgb(117, 83, 211);
+    border-radius: 50px;
+    padding: 10px 20px;
+    width: 500px;
+    margin: 50px auto; /* centraliza na tela */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.projeto-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 50px;
+    
+}
+
+.projeto-botao {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 10px;
+    z-index: 10;
+}
+
+.projeto-container {
+    margin-top: 500px;
+    margin-left: 100px;
+    z-index: 10;
+}
+
+.seta-icon {
+    width: 24px;
+    height: 24px;
+    z-index: 10;
+}
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 1px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgb(117, 83, 211);
+  z-index: 2;
+  width: 100%;
+}
+
+.search-container {
+  margin-left: 160px;
+  display: flex;
+  align-items: center;
+  flex-grow: 10; 
+}
+
+.search-container input {
+  padding: 8px;
+  margin-right: 250px;
+  border-radius: 100px;
+  border: none;
+  width: 1000px;
+
+}
+/* Botão de login */
+.login {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  margin-right: 25px;
+  position: relative;
+  top: 50px; 
+}
+/* Logo Vitrine Livre */
+.logo {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 130px;
+  height: 130px;
+  background-image: url(1000280733.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* Texto Vitrine livre */
+.titulo {
+  position: absolute;
+  top: 0px;
+  left: 50px;
+  width: 850px;
+  height: 720px;
+  background-image: url(1000280734.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* Flor decorativa*/
+.flor {
+  position: absolute;
+  top: 350px;
+  right: 50px;
+  width: 500px;
+  height: 600px;
+  background-image: url(1000280735.png);
+  background-size: cover;
+  background-position: center;
+}
+.search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-wrapper input {
+  padding: 8px 8px 8px 40px; /* espaço à esquerda para a lupa */
+  border-radius: 100px;
+  border: none;
+  width: 300px;
+}
+
+.imagem-lupa {
+  position: absolute;
+  left: 125px;
+  width: 23px;
+  height: 20px;
+  pointer-events: none; /* evita que clique bloqueie o input */
+}
+.projeto-container {
+  display: flex;
+  align-items: center;
+  background-color:rgb(117, 83, 211);
+  border-radius: 50px;
+  padding: 10px 20px;
+  width: 500px;
+  margin: 50px auto; /* centraliza na tela */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.projeto-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 50px;
+  
+}
+
+.projeto-botao {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 10px;
+   z-index: 10;
+}
+
+.projeto-container {
+  margin-top: 500px;
+  margin-left: 100px;
+  z-index: 10;
+}
+
+.seta-icon {
+  width: 24px;
+  height: 24px;
+  z-index: 10;
+}

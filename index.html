@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vitrine Livre</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> </head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo"></div>
+    <div class="search-container">
+      <img src="lupa.png" alt="Lupa" class="imagem-lupa">
+      <input type="text" class="search-bar" placeholder="O que você procura?">
+    </div>
+    
+    <div class="login-container">
+        <button class="login" id="loginButton">Login</button> 
+        
+        <div class="login-dropdown" id="loginDropdown">
+            <h4>Acessar Conta</h4>
+            <input type="text" placeholder="Usuário ou Email">
+            <input type="password" placeholder="Senha">
+            <button class="entrar-btn">Entrar</button>
+            <a href="#">Esqueci a senha</a>
+            <hr>
+            <a href="#">Criar nova conta</a>
+        </div>
+    </div>
+    </nav>
+
+  <div class="titulo"></div>
+
+  <div class="projeto-container">
+    <input type="text" placeholder="Clique para acessar a Galeria de Artes..." class="projeto-input">
+    <button class="projeto-botao" onclick="irParaGaleria()">
+      <img src="seta.png" alt="Enviar" class="seta-icon">
+    </button>
+  </div>
+
+  <div class="flor"></div>
+
+  <script>
+    function irParaGaleria() {
+      window.location.href = "galeria.html";
+    }
+
+    // NOVO SCRIPT PARA O DROPDOWN DE LOGIN
+    document.addEventListener('DOMContentLoaded', () => {
+        const loginButton = document.getElementById('loginButton');
+        const loginDropdown = document.getElementById('loginDropdown');
+
+        loginButton.addEventListener('click', (e) => {
+            e.stopPropagation(); // Impede que o clique se propague e feche imediatamente
+            // Alterna a visibilidade
+            loginDropdown.style.display = loginDropdown.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Fecha o dropdown se clicar fora dele
+        document.addEventListener('click', (e) => {
+            if (!loginDropdown.contains(e.target) && e.target !== loginButton) {
+                loginDropdown.style.display = 'none';
+            }
+        });
+
+        // Simula o clique no botão de entrar
+        loginDropdown.querySelector('.entrar-btn').addEventListener('click', () => {
+             alert("Ação de Login Simulada!");
+             loginDropdown.style.display = 'none';
+        });
+    });
+  </script>
+
+</body>
+</html>

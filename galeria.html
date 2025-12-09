@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitrine Livre - Biblioteca de Artes para Alunos</title>
+    <link rel="stylesheet" href="galeria.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="top-bar-container">
+        <nav class="main-nav">
+            <div class="logo">
+                <img src="letra.png" alt="Logo">
+            </div>
+
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" placeholder="Pesquisar...">
+            </div>
+
+            <div class="icon-group-right">
+                <i class="fas fa-comment-dots icon" id="messageIcon"></i> 
+                <i class="fas fa-user-circle icon" id="profileIcon"></i> 
+                <i class="fas fa-plus post-art-icon icon" id="postIcon" title="Postar Nova Arte"></i>
+            </div>
+        </nav>
+
+        <div class="bottom-nav-links">
+            <a href="#" class="nav-link current">Galeria</a>
+            <a href="#" class="nav-link">Comunidades</a>
+            <a href="#" class="nav-link">Caixa de entrada</a>
+            <a href="#" class="nav-link" id="profileLink">Meu Perfil</a>
+            <a href="#" class="nav-link" id="helpLink">Ajuda</a>
+        </div>
+    </header>
+
+    <div class="profile-dropdown" id="profileDropdown">
+        <h4>Acesso Rápido</h4>
+        <input type="text" placeholder="Usuário ou Email">
+        <input type="password" placeholder="Senha">
+        <button class="login-btn">Entrar</button>
+        <a href="#">Esqueci minha senha</a>
+        <hr>
+        <a href="#">Ver Perfil</a>
+        <a href="#">Configurações</a>
+    </div>
+
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <span class="chat-title">Direct</span>
+            <span class="close-chat" id="closeChat">&times;</span>
+        </div>
+        <div class="chat-list" id="chatList">
+            </div>
+        <div class="chat-footer">
+            <button class="new-message-btn"><i class="fas fa-edit"></i> Nova Mensagem</button>
+        </div>
+    </div>
+
+    <div class="carousel">
+        <div class="carousel-container">
+            <div class="carousel-item">
+                <h2>Compartilhe com seus Amigos!</h2>
+                <p>Mostre aos seus amigos as obras mais incríveis. Faça a arte ganhar vida entre todos.</p>
+                <button>Compartilhar Agora</button>
+            </div>
+            <div class="carousel-item">
+                <h2>Entre em uma Comunidade Criativa</h2>
+                <p>Junte-se à comunidade de artistas e apreciadores da arte. Explore novas ideias e colabore.</p>
+                <button>Junte-se Agora</button>
+            </div>
+            <div class="carousel-item">
+                <h2>Compartilhe sua Obra</h2>
+                <p>Exiba suas criações e inspire outros artistas. O espaço perfeito para sua arte.</p>
+                <button>Postar Agora</button>
+            </div>
+        </div>
+
+        <div class="carousel-nav">
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="filters">
+            <select id="categoryFilter">
+                <option value="all">Todas as Categorias</option>
+                <option value="pintura">Pintura</option>
+                <option value="digital">Arte Digital</option>
+                <option value="fotografia">Fotografia</option>
+                <option value="escultura">Escultura</option>
+            </select>
+            <input type="text" id="searchInput" placeholder="Buscar por título ou artista...">
+        </div>
+        
+        <<div class="gallery" id="gallery">
+    <div class="art-item" data-category="pintura" data-title="Abstrato Azul" data-artist="João Silva">
+        <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=300&h=250&fit=crop" alt="Abstrato Azul">
+        <div class="art-info">
+            <h3>Abstrato Azul</h3>
+            <p>Por João Silva, Ensino Médio</p>
+            <p>Categoria: Pintura</p>
+        </div>
+        <div class="art-actions">
+            <span class="like-button" data-liked="false"><i class="far fa-heart"></i> <span class="like-count">9.2k</span> Curtidas</span>
+            <span class="comment-icon" data-title="Abstrato Azul"><i class="fas fa-comment-alt"></i> Comentar</span>
+        </div>
+    </div>
+    
+    <div class="art-item" data-category="digital" data-title="Cidade Futurista" data-artist="Maria Oliveira">
+        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=250&fit=crop" alt="Cidade Futurista">
+        <div class="art-info">
+            <h3>Cidade Futurista</h3>
+            <p>Por Maria Oliveira, Universidade</p>
+            <p>Categoria: Arte Digital</p>
+        </div>
+        <div class="art-actions">
+            <span class="like-button" data-liked="false"><i class="far fa-heart"></i> <span class="like-count">1.9k</span> Curtidas</span>
+            <span class="comment-icon" data-title="Cidade Futurista"><i class="fas fa-comment-alt"></i> Comentar</span>
+        </div>
+    </div>
+    
+    <div class="art-item" data-category="fotografia" data-title="Natureza Selvagem" data-artist="Carlos Santos">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=250&fit=crop" alt="Natureza Selvagem">
+        <div class="art-info">
+            <h3>Natureza Selvagem</h3>
+            <p>Por Carlos Santos, Ensino Fundamental</p>
+            <p>Categoria: Fotografia</p>
+        </div>
+        <div class="art-actions">
+            <span class="like-button" data-liked="false"><i class="far fa-heart"></i> <span class="like-count">5.3k</span> Curtidas</span>
+            <span class="comment-icon" data-title="Natureza Selvagem"><i class="fas fa-comment-alt"></i> Comentar</span>
+        </div>
+    </div>
+    
+    <div class="art-item" data-category="escultura" data-title="Forma Orgânica" data-artist="Ana Lima">
+        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=250&fit=crop" alt="Forma Orgânica">
+        <div class="art-info">
+            <h3>Forma Orgânica</h3>
+            <p>Por Ana Lima, Universidade</p>
+            <p>Categoria: Escultura</p>
+        </div>
+        <div class="art-actions">
+            <span class="like-button" data-liked="false"><i class="far fa-heart"></i> <span class="like-count">2.k</span> Curtidas</span>
+            <span class="comment-icon" data-title="Forma Orgânica"><i class="fas fa-comment-alt"></i> Comentar</span>
+        </div>
+    </div>
+</div>
+
+<div class="comment-box" id="commentBox">
+    <div class="comment-header" id="commentHeader">
+        <span id="commentTitle">Comentar em: Obra X</span>
+        <span class="close-comment" id="closeComment">&times;</span>
+    </div>
+    <div class="comment-body">
+        <textarea id="commentInput" placeholder="Escreva seu comentário..."></textarea>
+        <div id="tempCommentDisplay" class="temp-comment-display"></div>
+    </div>
+    <div class="comment-footer">
+        <button id="postCommentBtn">Postar (Temp.)</button>
+    </div>
+</div>
+            </div>
+        </div>
+        
+        <div class="load-more">
+            <button id="loadMoreBtn">Carregar Mais Obras</button>
+        </div>
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImg" src="" alt="Obra Ampliada">
+            <h3 id="modalTitle"></h3>
+            <p id="modalArtist"></p>
+            <p id="modalCategory"></p>
+            <p>Comentários: "Incrível trabalho! Inspirador para alunos." (Simulado)</p>
+        </div>
+    </div>
+    <div class="modal" id="myProfileModal">
+    <div class="modal-content profile-modal">
+        <span class="close" onclick="closeMyProfileModal()">&times;</span>
+        
+        <div class="profile-header-content">
+            <i class="fas fa-user-circle profile-icon-large"></i>
+            <h3 id="profileUsername">Nome do Aluno Fictício</h3>
+            <p id="profileUserBio">Estudante de Artes, focado em Arte Digital e Pintura. Compartilhando minhas criações com a comunidade.</p>
+            <button class="edit-profile-btn" id="editProfileBtn"><i class="fas fa-edit"></i> Editar Perfil (Fictício)</button>
+        </div>
+
+        <hr>
+
+        <div class="profile-stats">
+            <h4>Estatísticas de Engajamento</h4>
+            <div class="stats-grid">
+                <div>
+                    <strong>20</strong>
+                    <p>Postagens</p>
+                </div>
+                <div>
+                    <strong>15.4k</strong>
+                    <p>Curtidas Totais</p>
+                </div>
+                <div>
+                    <strong>87</strong>
+                    <p>Comentários Recebidos</p>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="profile-posts">
+            <h4>Minhas Postagens</h4>
+            <div class="my-posts-grid">
+                <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=150&h=150&fit=crop" alt="Minha Obra 1">
+                <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=150&h=150&fit=crop" alt="Minha Obra 2">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=150&h=150&fit=crop" alt="Minha Obra 3">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="postModal">
+    <div class="modal-content post-form-modal">
+        <span class="close" onclick="closePostModal()">&times;</span>
+        <h3>🖼️ Compartilhe sua Obra</h3>
+        <p>Preencha os dados para simular o envio da sua arte.</p>
+        <hr>
+
+        <div class="post-form-group">
+            <label for="postPhoto">Selecione a Imagem da Arte:</label>
+            <input type="file" id="postPhoto" accept="image/*" required>
+        </div>
+
+        <div class="post-form-group">
+            <label for="postTitle">Título da Obra:</label>
+            <input type="text" id="postTitle" placeholder="Ex: Retrato Abstrato" required>
+        </div>
+
+        <div class="post-form-group">
+            <label for="postDescription">Descrição (Opcional):</label>
+            <textarea id="postDescription" rows="3" placeholder="Conte um pouco sobre a inspiração e o processo."></textarea>
+        </div>
+        
+        <div class="post-form-group">
+            <label for="postCategory">Categoria / Tag:</label>
+            <select id="postCategory" required>
+                <option value="" disabled selected>Selecione uma categoria...</option>
+                <option value="pintura">Pintura</option>
+                <option value="digital">Arte Digital</option>
+                <option value="fotografia">Fotografia</option>
+                <option value="escultura">Escultura</option>
+            </select>
+        </div>
+        
+        <button id="submitPostBtn" onclick="submitPost()">Postar Simulação</button>
+    </div>
+</div>
+<div class="modal" id="helpModal">
+    <div class="modal-content help-modal-content">
+        <span class="close" onclick="closeHelpModal()">&times;</span>
+        <div class="help-header">
+            <i class="fas fa-question-circle help-icon"></i>
+            <h3>Central de Ajuda Vitrine Livre</h3>
+            <p>Encontre respostas rápidas ou entre em contato com nosso suporte.</p>
+        </div>
+        
+        <hr>
+
+        <div class="help-section">
+            <h4>Dúvidas Frequentes (FAQ)</h4>
+            <div class="faq-item">
+                <h5>Como eu posto minha arte na galeria?</h5>
+                <p>Clique no ícone de **sinal de mais (+)** no canto superior direito para abrir o formulário de postagem de arte. Preencha o título, descrição e categoria e envie.</p>
+            </div>
+            <div class="faq-item">
+                <h5>Como faço para curtir ou comentar?</h5>
+                <p>Abaixo de cada obra, clique no ícone de **coração** para curtir ou no ícone de **balão de fala** para abrir a caixa de comentários.</p>
+            </div>
+            <div class="faq-item">
+                <h5>O que acontece ao clicar na imagem?</h5>
+                <p>Ao clicar na imagem, ela é ampliada em uma janela modal para que você possa ver os detalhes da obra.</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="help-section contact-info">
+            <h4>Suporte e Contato</h4>
+            <p><i class="fas fa-envelope"></i> E-mail: **suporte@vitrinelivre.com.br**</p>
+            <p><i class="fas fa-info-circle"></i> Versão: 1.0 (Beta)</p>
+            <p class="contact-note">Devido ao alto volume, a resposta do suporte pode levar até 48 horas úteis.</p>
+        </div>
+    </div>
+</div>
+
+    <script src="galeria.js"></script>
+</body>
+</html>

@@ -1,0 +1,919 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: rgb(238, 238, 238);
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* ================================ Top Bar e Navegação ================================ */
+.top-bar-container {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    /* NOVO CÓDIGO PARA IMAGEM DE FUNDO */
+    background-image: url('1000280732.jpg');
+    background-size: cover; /* Ajusta a imagem para cobrir toda a área */
+    background-repeat: no-repeat; /* Evita que a imagem se repita */
+    background-position:  bottom; /* Centraliza a imagem */
+    
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+   
+}
+
+.logo img {
+    height: 150px;
+    vertical-align: middle;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    padding: 8px 15px;
+    flex-grow: 0.5; 
+    max-width: 600px;
+}
+
+.search-icon {
+    color: rgb(117, 83, 211); 
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.search-container input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    font-size: 16px;
+}
+
+.icon-group-right {
+    display: flex;
+    align-items: center;
+    color: #333;
+}
+
+.icon-group-right .icon {
+    font-size: 24px;
+    margin-left: 20px;
+    cursor: pointer;
+    color: white;
+}
+
+.bottom-nav-links {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 40px;
+    background-color: rgb(117, 83, 211);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.nav-link {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin-right: 10px;
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: rgb(138, 112, 207);
+}
+
+.nav-link.current {
+    color: white;
+}
+
+.nav-link.current::after {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    left: 20px; 
+    right: 20px;
+    height: 3px;
+    background-color: white;
+}
+
+/* ================================ Carrossel ================================ */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    flex: 1;
+    min-width: 100%;
+    padding: 40px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.carousel-item h2 {
+    font-size: 28px;
+    color: rgb(117, 83, 211);
+    margin-bottom: 10px;
+}
+
+.carousel-item p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.carousel-item button {
+    background: rgb(117, 83, 211);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.carousel-item button:hover {
+    background: rgb(50, 21, 128);
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 10px;
+}
+
+.carousel-nav button {
+    background: rgba(117, 83, 211, 0.8);
+    color: white;
+    border: none;
+    width: 40px; 
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%; 
+    transition: background 0.3s;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.carousel-nav button:hover {
+    background: rgb(117, 83, 211);
+}
+
+/* ================================ Galeria e Filtros ================================ */
+
+.container {
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.filters select, .filters input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 5px;
+    flex: 1 1 45%;
+    min-width: 200px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.art-item {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.art-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.art-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: opacity 0.3s;
+}
+
+.art-item:hover img {
+    opacity: 0.9;
+}
+
+.art-info {
+    padding: 15px;
+}
+
+.art-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+    color: rgb(117, 83, 211);
+}
+
+.art-info p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+/* ================================ Modal ================================ */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.modal img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #333;
+}
+
+.load-more {
+    text-align: center;
+    margin-top: 30px;
+}
+
+button {
+    background: rgb(117, 83, 211);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: rgb(50, 21, 128);
+}
+
+/* ================================ NOVOS ESTILOS PARA PERFIL E CHAT ================================ */
+
+/* --- Menu de Perfil (Login Dropdown) --- */
+.profile-dropdown {
+    display: none;
+    position: absolute;
+    top: 100px;
+    right: 40px;
+    width: 250px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    z-index: 1001;
+}
+
+.profile-dropdown::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: 15px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid white;
+}
+
+.profile-dropdown h4 {
+    margin-top: 0;
+    color: rgb(117, 83, 211);
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.profile-dropdown input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.profile-dropdown .login-btn {
+    width: 100%;
+    margin-bottom: 10px;
+    background: rgb(117, 83, 211);
+}
+
+.profile-dropdown a {
+    display: block;
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+/* --- Janela de Chat (Direct estilo Instagram) --- */
+.chat-window {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    height: 400px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    z-index: 1000;
+    cursor: grab;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.chat-window.dragging {
+    cursor: grabbing;
+}
+
+.chat-header {
+    background: rgb(117, 83, 211);
+    color: white;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    cursor: grab;
+}
+
+.chat-header .close-chat {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.chat-list {
+    height: calc(100% - 90px);
+    overflow-y: auto;
+    padding: 10px;
+    background: #fafafa;
+}
+
+.chat-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.chat-item:hover {
+    background: #f0f0f0;
+}
+
+.chat-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ddd;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    color: #666;
+    font-weight: bold;
+}
+
+.chat-info h5 {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.chat-info p {
+    margin: 0;
+    font-size: 12px;
+    color: #aaa;
+    font-weight: bold; 
+}
+
+.chat-footer {
+    padding: 10px;
+    border-top: 1px solid #eee;
+    text-align: center;
+}
+
+.chat-footer .new-message-btn {
+    width: 90%;
+    background: #fff;
+    color: rgb(117, 83, 211);
+    border: 1px solid rgb(117, 83, 211);
+}
+
+.chat-footer .new-message-btn:hover {
+    background: #f0f0f0;
+}
+
+
+/* ================================ Responsividade ================================ */
+
+@media (max-width: 768px) {
+    .main-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+    }
+    
+    .search-container {
+        margin-top: 10px;
+        width: 100%;
+        max-width: none;
+    }
+    
+    .icon-group-right {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    .bottom-nav-links {
+        padding: 0 20px;
+        justify-content: space-around;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .nav-link {
+        padding: 10px 10px;
+        margin-right: 0;
+        font-size: 14px;
+    }
+    
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+    
+    .filters {
+        flex-direction: column;
+    }
+    
+    .filters select, .filters input {
+        flex: 1 1 100%;
+        margin-bottom: 10px;
+    }
+    
+    /* Move chat window para cima no mobile */
+    .chat-window {
+        width: 90%;
+        height: 80%;
+        bottom: 10px;
+        right: 5%;
+        left: 5%;
+    }
+}
+/* ... (Seção de Galeria existente) ... */
+
+/* NOVO CÓDIGO: Estilos para Ações da Arte */
+.art-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    border-top: 1px solid #eee;
+    background: #fcfcfc;
+}
+
+.like-button, .comment-icon {
+    cursor: pointer;
+    font-size: 14px;
+    color: #666;
+    transition: color 0.2s;
+    user-select: none;
+}
+
+.like-button:hover, .comment-icon:hover {
+    color: rgb(117, 83, 211);
+}
+
+/* Estilo para quando a arte estiver curtida */
+.like-button.liked {
+    color: #ff385c; /* Cor de coração popular (vermelho) */
+    font-weight: bold;
+}
+
+.like-button.liked .fa-heart {
+    font-weight: 900; /* Preenche o ícone de coração (sólido) */
+}
+
+.like-count {
+    margin-right: 5px;
+}
+
+/* NOVO CÓDIGO: Caixa de Comentários Flutuante */
+.comment-box {
+    display: none; /* Inicia oculto, será exibido pelo JS */
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 320px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    z-index: 2000; /* Mais alto que o modal e o chat */
+    overflow: hidden;
+    resize: both; /* Permite redimensionar */
+    min-width: 250px;
+    min-height: 200px;
+}
+
+.comment-box.dragging {
+    cursor: grabbing;
+}
+
+.comment-header {
+    background: rgb(117, 83, 211);
+    color: white;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    cursor: grab; /* Indica que pode ser arrastado */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.comment-header .close-comment {
+    font-size: 20px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.comment-body {
+    padding: 15px;
+    background: #fafafa;
+}
+
+#commentInput {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    resize: none;
+    margin-bottom: 10px;
+}
+
+.temp-comment-display {
+    border: 1px dashed #ccc;
+    padding: 10px;
+    min-height: 30px;
+    font-size: 14px;
+    color: #333;
+    background: #fff;
+    border-radius: 5px;
+    margin-top: 10px;
+    white-space: pre-wrap; /* Mantém quebras de linha */
+}
+
+.comment-footer {
+    padding: 10px 15px;
+    border-top: 1px solid #eee;
+    text-align: right;
+}
+
+#postCommentBtn {
+    padding: 8px 15px;
+    background: rgb(117, 83, 211);
+}
+/* Correção de Layout para art-item */
+.art-item {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    /* Adiciona flexbox para empilhar e garantir que as ações fiquem no final */
+    display: flex;
+    flex-direction: column; 
+}
+
+/* Garante que o conteúdo de informações ocupe o espaço e empurre as ações para baixo */
+.art-info {
+    padding: 15px;
+    flex-grow: 1; /* Ocupa todo o espaço vertical disponível */
+}
+/* ================================ Modal Meu Perfil ================================ */
+
+/* Estilos específicos para o conteúdo do modal de perfil */
+.modal-content.profile-modal {
+    max-width: 500px; /* Torná-lo um pouco menor que o modal de imagem */
+}
+
+.profile-header-content {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-icon-large {
+    font-size: 80px;
+    color: rgb(117, 83, 211);
+    margin-bottom: 10px;
+}
+
+#profileUsername {
+    margin: 5px 0 5px 0;
+    font-size: 24px;
+    color: #333;
+}
+
+#profileUserBio {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.edit-profile-btn {
+    background: rgb(117, 83, 211);
+    padding: 8px 15px;
+    font-size: 14px;
+}
+
+.edit-profile-btn:hover {
+    background:rgb(50, 21, 128);
+}
+
+/* --- Estatísticas --- */
+.profile-stats {
+    margin: 20px 0;
+}
+
+.profile-stats h4 {
+    color: rgb(117, 83, 211);
+    margin-bottom: 15px;
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.stats-grid strong {
+    display: block;
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+}
+
+.stats-grid p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+/* --- Posts do Perfil (Grid) --- */
+.profile-posts {
+    margin-top: 20px;
+}
+
+.profile-posts h4 {
+    color: rgb(117, 83, 211);
+    margin-bottom: 15px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.my-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.my-posts-grid img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.my-posts-grid img:hover {
+    transform: scale(1.05);
+}
+/* ================================ Botão de Postagem Rápida ================================ */
+
+.post-art-icon {
+    /* Define o estilo do ícone "+" como um botão redondo */
+    background-color: white;
+    color: rgb(117, 83, 211) !important; /* Cor do ícone */
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    margin-right: 15px; /* Espaço entre o "+" e a mensagem */
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.post-art-icon:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}
+
+/* ================================ Modal de Postagem (Formulário) ================================ */
+
+.modal-content.post-form-modal {
+    max-width: 450px;
+    text-align: left;
+}
+
+.modal-content.post-form-modal h3 {
+    text-align: center;
+    color: rgb(117, 83, 211);
+    margin-bottom: 5px;
+}
+
+.modal-content.post-form-modal p {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.post-form-group {
+    margin-bottom: 15px;
+}
+
+.post-form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.post-form-group input[type="text"],
+.post-form-group textarea,
+.post-form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.post-form-group textarea {
+    resize: vertical;
+}
+
+#submitPostBtn {
+    width: 100%;
+    margin-top: 10px;
+}
+/* ================================ Modal de Ajuda ================================ */
+
+/* Estilos específicos para o conteúdo do modal de ajuda */
+.modal-content.help-modal-content {
+    max-width: 650px; /* Um pouco mais largo para o conteúdo de texto */
+    text-align: left;
+}
+
+.help-header {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.help-icon {
+    font-size: 50px;
+    color: rgb(117, 83, 211);
+    margin-bottom: 10px;
+}
+
+.help-header h3 {
+    margin: 5px 0;
+    font-size: 26px;
+    color: #333;
+}
+
+.help-header p {
+    color: #777;
+    font-size: 15px;
+}
+
+.help-section h4 {
+    color: rgb(117, 83, 211);
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+/* Estilos para Itens do FAQ */
+.faq-item {
+    margin-bottom: 20px;
+}
+
+.faq-item h5 {
+    font-size: 16px;
+    color: #444;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+}
+
+.faq-item p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+    padding-left: 15px;
+    border-left: 3px solid #f0f0f0;
+}
+
+/* Estilos para Informações de Contato */
+.contact-info p {
+    margin: 8px 0;
+    font-size: 15px;
+    color: #333;
+}
+
+.contact-info i {
+    color: rgb(117, 83, 211);
+    margin-right: 10px;
+}
+
+.contact-note {
+    font-size: 13px;
+    color: #999;
+    margin-top: 15px;
+    font-style: italic;
+}
